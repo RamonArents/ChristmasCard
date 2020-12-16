@@ -12,7 +12,9 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color:#e8e6e6;
+    /* background-color:#e8e6e6; */
+    background:url('../images/background.png');
+    background-size: cover;
 }
 /* style Christmas text */
 h1{
@@ -234,13 +236,13 @@ h1{
 }
 @keyframes changeColor{
     0%{
-        color:#000;
+        color:#fff;
     }
     50%{
         color:#e60000;
     }
     100%{
-        color:#000;
+        color:#fff;
     }
 }
 /* end keyframes (animations) */
