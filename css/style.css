@@ -1,0 +1,246 @@
+@font-face{
+    font-family: ChristmasFont;
+    src:url('../fonts/ChristmasFont.otf');
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color:#e8e6e6;
+}
+/* style Christmas text */
+h1{
+    position: absolute;
+    font-family:ChristmasFont;
+    font-size:5em;
+    word-spacing:8em;
+    animation:changeColor 3s linear infinite;
+}
+/* style snowflakes */
+.snowflake {
+    position: fixed;
+    top:-10%;
+    color: #fff;
+    font-size: 1em;
+    font-family: Arial;
+    text-shadow: 0 0 1px #000;
+    z-index:9999;
+    animation-name:snowflakes-fall, snowflakes_shake;
+    animation-duration:  10s, 3s;
+    animation-timing-function:linear, ease-in-out;
+    animation-iteration-count: infinite, infinite;
+    animation-play-state: running, running;
+    user-select:none;
+    cursor:default;
+}
+.snowflake:nth-of-type(0){
+    left:1%;
+    animation-delay:0s,0s;
+}
+.snowflake:nth-of-type(1){
+    left:10%;
+    animation-delay:1s,1s;
+}
+.snowflake:nth-of-type(2){
+    left:20%;
+    animation-delay:6s,.5s;
+}
+.snowflake:nth-of-type(3){
+    left:30%;
+    animation-delay:4s,2s;
+}
+.snowflake:nth-of-type(4){
+    left:40%;
+    animation-delay:2s,2s;
+}
+.snowflake:nth-of-type(5){
+    left:50%;
+    animation-delay:8s,3s;
+}
+.snowflake:nth-of-type(6){
+    left:60%;
+    animation-delay:6s,2s;
+}
+.snowflake:nth-of-type(7){
+    left:70%;
+    animation-delay:2.5s,1s;
+}
+.snowflake:nth-of-type(8){
+    left:80%;
+    animation-delay:1s,0s;
+}
+.snowflake:nth-of-type(9){
+    left:90%;
+    animation-delay:3s,1.5s;
+}
+/* end style snowflakes */
+/* start style tree */
+.tree .tree-top .star{
+    position: relative;
+    display:inline-block;
+    width:0;
+    height: 0;
+    margin-left:6.4em;
+    margin-right:0.9em;
+    margin-bottom:2em;
+    border-right:0.3em solid transparent;
+    border-bottom: 0.7em solid #FC0;
+    border-left:0.3em solid transparent;
+    font-size: 24px;
+    animation:rotateStar 1.5s linear infinite;
+}
+.tree .tree-top .star:before, .tree .tree-top .star:after{
+    content:'';
+    display:block;
+    width:0;
+    height:0;
+    position: absolute;
+    top:0.6em;
+    left:-1em;
+    border-right: 1em solid transparent;
+    border-bottom:0.7em solid #FC0;
+    border-left: 1em solid transparent;
+    transform:rotate(-35deg);
+}
+.tree .tree-top .star:after{
+    transform: rotate(35deg);
+}
+.tree .tree-triangle{
+    margin:-15px auto 0;
+    width:0;
+    height:0;
+    border-left:10em solid transparent;
+    border-right: 10em solid transparent;
+    border-bottom: 8em solid #16850c;
+}
+.tree .tree-triangle .balls{
+    position: relative;
+}
+.tree .tree-triangle .balls .ball{
+    position: absolute;
+    border-radius: 100%;
+    width:20px;
+    height:20px;
+    animation: ballAnimation;
+    animation-iteration-count: infinite;
+    animation-duration: 2.5s;
+    box-shadow: 0px 0px 1em rgba(255,255,255,0.8);
+}
+.tree .tree-triangle .balls .ball1{
+    top:40px;
+    left:-6px;
+    background:radial-gradient(circle, #f09696, #ff0800);
+}
+.tree .tree-triangle .balls .ball2{
+    top:84px;
+    left:60px;
+    background:radial-gradient(circle,#e5e815, #e5e815);
+}
+.tree .tree-triangle .balls .ball3{
+    top:80px;
+    left:-70px;
+    background:radial-gradient(circle, #1eecf7, #1eecf7);
+}
+.tree .tree-triangle .balls .ball4{
+    top:40px;
+    left:-6px;
+    background:radial-gradient(circle,#04de3f, #04de3f);
+}
+.tree .tree-triangle .balls .ball5{
+    top:84px;
+    left:60px;
+    background:radial-gradient(circle,#d40bdb, #d40bdb);
+}
+.tree .tree-triangle .balls .ball6{
+    top:80px;
+    left:-70px;
+    background:radial-gradient(circle, #5a64ed, #5a64ed);
+}
+.tree .tree-bottom{
+    width:80px;
+    height: 100px;
+    bottom:50px;
+    margin-left:120px;
+    background-color:#634900;
+}
+/* end style tree */
+/* media queries */
+@media (max-height:550px){
+    .tree .tree-top .star{ 
+        margin-bottom:0em;
+    } 
+}
+@media (max-width:550px){
+    h1{
+        word-spacing: 0em;
+        margin-bottom:600px;
+    }
+}
+@media (max-width:700px){
+    h1{
+        font-size:2.5em;
+    }
+}
+@media (max-width:1100px){
+    h1{
+        font-size:3em;
+    }
+}
+/* end media quries */
+/* keyframes (animations) */
+@keyframes ballAnimation{
+    0%{
+        box-shadow: 0px 0px 0.9em rgba(255,2555,255,1);
+    }
+    50%{
+        box-shadow: 0px 0px 0.9em rgba(255,255,255,.1);
+    }
+    100%{
+        box-shadow: 0px 0px 0.9em rgba(255,255,255, 1);
+    }
+}
+@keyframes rotateStar{
+    100%{
+        transform: rotate(360deg);
+    }
+}
+@keyframes snowflakes-fall{
+    0%{
+        top:-10%
+      }
+    100%{
+        top:100%
+    }
+}
+@keyframes snowflakes-shake{
+    0%{
+        transform:translateX(0px);
+        transform:translateX(0px);
+      }
+    50%{
+        transform:translateX(80px);
+        transform:translateX(80px);
+    }
+    100%{
+        transform:translateX(0px);
+        transform:translateX(0px);
+    }
+}
+@keyframes changeColor{
+    0%{
+        color:#000;
+    }
+    50%{
+        color:#e60000;
+    }
+    100%{
+        color:#000;
+    }
+}
+/* end keyframes (animations) */
